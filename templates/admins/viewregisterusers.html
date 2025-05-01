@@ -1,0 +1,71 @@
+{% extends 'admins/adminbase.html'%}
+{%load static%}
+{%block contents%}
+<!--<style>-->
+<!--    .bg-light{-->
+<!--    margin-top: -500px;-->
+<!--    background: #65cd00;-->
+<!--    padding:10px;-->
+<!--    }-->
+
+<!--</style>-->
+
+ <section class="we-do">
+    <div class="container">
+        <div class="we-do-details">
+            <div class="section-header text-center">
+                <h2>View Registered Users</h2>
+                <p>
+                    <table class="table table-bordered bg-light text-dark">
+    <thead>
+      <tr style="color:red;font-weight:bold;">
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Login ID</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Locality</th>
+        <th>Status</th>
+        <th>Activate</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+                                            <tr style="color: Green">
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.loginid}}</td>
+                                                <td>{{i.mobile}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.locality}}</td>
+                                                <td>{{i.status}}</td>
+
+                                                {% if i.status == 'waiting' %}
+                                                <td><a class="btn-link" href="/ActivaUsers/?uid={{ i.id }}"
+                                                       style="color:DARKBLUE">Activate</a>
+                                                       /
+                                                <a class="btn-link" href="/DeleteUsers/?uid={{ i.id }}"
+                                                   style="color:DARKBLUE">Delete</a></td>
+                                               
+                                                </td>
+                                                {% else %}
+                                                <td> Activated</td>
+                                                /
+                                                <td><a class="btn-link" href="/DeleteUsers/?uid={{ i.id }}"
+                                                   style="color:DARKBLUE">Delete</a></td>
+                                                {% endif %}
+                                            </tr>
+                                            {% endfor %}
+
+    </tbody>
+  </table>
+                </p>
+            </div><!--/.section-header-->
+
+        </div><!--/.we-do-details-->
+    </div><!--/.container-->
+</section><!--/.we-do-->
+
+
+{%endblock%}

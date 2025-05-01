@@ -1,0 +1,78 @@
+{% extends 'users/userbase.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Training Results</h1>
+
+    <h2>Train Accuracy</h2>
+    <p>{{ train_accuracy }}</p>
+
+    <h2>Train Confusion Matrix</h2>
+    <table>
+        <tr>
+            <th></th>
+            <th>Legitimate</th>
+            <th>Phishing</th>
+        </tr>
+        <tr>
+            <th>Legitimate</th>
+            <td>{{ train_confusion_matrix.0.0 }}</td>
+            <td>{{ train_confusion_matrix.0.1 }}</td>
+        </tr>
+        <tr>
+            <th>Phishing</th>
+            <td>{{ train_confusion_matrix.1.0 }}</td>
+            <td>{{ train_confusion_matrix.1.1 }}</td>
+        </tr>
+    </table>
+
+    <h2>Train ROC AUC Score</h2>
+    <!-- Display the ROC AUC score as needed -->
+
+    <h2>Test Accuracy</h2>
+    <p>{{ test_accuracy }}</p>
+
+    <h2>Test Confusion Matrix</h2>
+    <table>
+        <tr>
+            <th></th>
+            <th>Legitimate</th>
+            <th>Phishing</th>
+        </tr>
+        <tr>
+            <th>Legitimate</th>
+            <td>{{ test_confusion_matrix.0.0 }}</td>
+            <td>{{ test_confusion_matrix.0.1 }}</td>
+        </tr>
+        <tr>
+            <th>Phishing</th>
+            <td>{{ test_confusion_matrix.1.0 }}</td>
+            <td>{{ test_confusion_matrix.1.1 }}</td>
+        </tr>
+    </table>
+
+    <h2>Test ROC AUC Score</h2>
+    <!-- Display the ROC AUC score as needed -->
+</body>
+</html>
+{%endblock%}

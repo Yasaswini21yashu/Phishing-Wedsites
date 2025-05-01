@@ -1,0 +1,71 @@
+{% extends 'users/userbase.html'%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Results</title>
+    <style>
+        /* Add your CSS styling here */
+        /* Example: */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .confusion-matrix {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Learning Results</h1>
+
+        <div class="result">
+            <h2 class="result-heading">Model Accuracy:</h2>
+            <p>{{ model_acc }}</p>
+        </div>
+
+        <div class="result">
+            <h2 class="result-heading">Predicted Labels:</h2>
+            <p>{{ y_pred }}</p>
+        </div>
+
+        <div class="result">
+            <h2 class="result-heading">Confusion Matrix:</h2>
+            <div class="confusion-matrix">
+                <table border="1">
+                    {% for row in cm %}
+                        <tr>
+                            {% for cell in row %}
+                                <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <div class="result">
+            <h2 class="result-heading">Classification Report:</h2>
+            <p>{{ clr }}</p>
+        </div>
+    </div>
+</body>
+</html>
+{%endblock%}

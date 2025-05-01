@@ -1,0 +1,101 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block contents%}
+<section class="we-do">
+    <div class="container">
+        <div class="we-do-details">
+            <div class="section-header text-center">
+                <h2>User Register Form</h2>
+                <p>
+<center>
+                <form action="{%url 'UserRegisterActions'%}" method="POST" style="width:100%">
+
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>User Name</td>
+                            <td style="color:black">{{form.name}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Login ID</td>
+                            <td style="color:black">{{form.loginid}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Password</td>
+                            <td style="color:black">{{form.password}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Mobile</td>
+                            <td style="color:black">{{form.mobile}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>email</td>
+                            <td style="color:black">{{form.email}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Locality</td>
+                            <td style="color:black">{{form.locality}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Address</td>
+                            <td style="color:black">{{form.address}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>City</td>
+                            <td style="color:black">{{form.city}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>State</td>
+                            <td style="color:black">{{form.state}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td style="color:black">{{form.status}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="btn btn-block btn-primary text-white py-3 px-5"
+                                        style="margin-center:20%;"
+                                        type="submit">
+                                    Register
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group mt-3">
+                                    <span>&nbsp;</span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='red'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+</center>
+                </p>
+            </div><!--/.section-header-->
+        </div><!--/.we-do-details-->
+    </div><!--/.container-->
+</section><!--/.we-do-->
+
+{%endblock%}

@@ -1,0 +1,29 @@
+{% extends 'users/userbase.html'%}
+{%block contents%}
+
+ <section id="intro">
+
+    <div class="intro-text">
+<!--        <div class="container" style="margin-top:-200px;">-->
+
+      <p><h3 align="center" style="color:white; font-weight:bold;">Test Predictions</h3></p>
+      <pre>
+          <center>
+          <h3>Given {{tweet}} and</h3>
+          <h1>Result is <font color="RED">{{msg}}</font></h1>
+        <form action="{%url 'prediction'%}" class="control-form" method="post">
+            {%csrf_token%}
+            <table class="sm-table">
+            <tr>
+                <td>Enter any text</td>
+                <td><textarea name="tweets" cols="50" rows="7"></textarea></td>
+            </tr>
+
+            <td><button type="submit">submit</button></td>
+            </table>
+        </form>
+        </center>
+      </pre>
+    </div>
+  </section>
+{%endblock%}

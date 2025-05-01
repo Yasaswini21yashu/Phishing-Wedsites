@@ -1,0 +1,121 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+
+<!DOCTYPE html>
+  <html>
+  <style>
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .formDiv {
+    margin: 0 200px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  </style>
+
+<body>
+    <div class="formDiv">
+<h2 align="center" style="color:rgb(50, 19, 190);font-weight:bold;">prediction: {{ msg }}</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+<center>
+
+    <label>length_url:</label>
+    <input type="text" id="length_url" name="length_url" required><br>
+
+    <label>length_hostname:</label>
+    <input type="text" id="length_hostname" name="length_hostname" required><br>
+
+    <label>ip:</label>
+    <input type="text" id="ip" name="ip" required><br>
+
+    <label>nb_dots:</label>
+    <input type="text" id="nb_dots" name="nb_dots" required><br>
+
+    <label>nb_qm:</label>
+    <input type="text" id="nb_qm" name="nb_qm" required><br>
+
+    <label>nb_eq:</label>
+    <input type="text" id="nb_eq" name="nb_eq" required><br>
+
+    <label>nb_slash:</label>
+    <input type="text" id="nb_slash" name="nb_slash" required><br>
+
+    <label>nb_www:</label>
+    <input type="text" id="nb_www" name="nb_www" required><br>
+
+    <label>ratio_digits_url:</label>
+    <input type="text" id="ratio_digits_url" name="ratio_digits_url" required><br>
+
+    <label>ratio_digits_host:</label>
+    <input type="text" id="ratio_digits_host" name="ratio_digits_host" required><br>
+
+    <label>tld_in_subdomain:</label>
+    <input type="text" id="tld_in_subdomain" name="tld_in_subdomain" required><br>
+
+    <label>prefix_suffix:</label>
+    <input type="text" id="prefix_suffix" name="prefix_suffix" required><br>
+
+    <label>shortest_word_host:</label>
+    <input type="text" id="shortest_word_host" name="shortest_word_host" required><br>
+
+    <label>longest_words_raw:</label>
+    <input type="text" id="longest_words_raw" name="longest_words_raw" required><br>
+
+    <label>longest_word_path:</label>
+    <input type="text" id="longest_word_path" name="longest_word_path" required><br>
+
+    <label>phish_hints:</label>
+    <input type="text" id="phish_hints" name="phish_hints" required><br>
+
+    <label>nb_hyperlinks:</label>
+    <input type="text" id="nb_hyperlinks" name="nb_hyperlinks" required><br>
+
+    <label>ratio_intHyperlinks:</label>
+    <input type="text" id="ratio_intHyperlinks" name="ratio_intHyperlinks" required><br>
+
+    <label>empty_title:</label>
+    <input type="text" id="empty_title" name="empty_title" required><br>
+
+    <label>domain_in_title:</label>
+    <input type="text" id="domain_in_title" name="domain_in_title" required><br>
+
+    <label>domain_age:</label>
+    <input type="text" id="domain_age" name="domain_age" required><br>
+
+    <label>google_index:</label>
+    <input type="text" id="google_index" name="google_index" required><br>
+
+    <label>page_rank:</label>
+    <input type="text" id="page_rank" name="page_rank" required><br>
+    
+
+    <input type="submit" value="submit">
+</center>
+</div>
+</body>
+</html>
+
+{% endblock %}
