@@ -1,1 +1,1 @@
-# Phishing-Wedsites
+# Phishing-Websites
